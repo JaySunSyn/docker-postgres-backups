@@ -25,7 +25,7 @@ echo "> Zipping dump file"
 gzip -9 $GPG_FILE
 
 echo "> Uploading to S3"
-AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID" AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" aws s3 cp "$GPG_FILE.gz" "$S3_URI" --region "$S3_REGION"
+AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID" AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" aws s3 cp "$GPG_FILE.gz" "$S3_URI" --region "$AWS_DEFAULT_REGION"
 
 # Clean up
 rm $FILE
