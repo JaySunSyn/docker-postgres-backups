@@ -1,6 +1,11 @@
 # Credit for lots of this goes to: https://github.com/siomiz/PostgreSQL-S3
 set -e # stop if any of these commands fail
 
+if [[ "$RUN_BACKUP" != "TRUE" ]]; then
+  echo 'Will not run backups according to RUN_BACKUP env var. Exiting.';
+  exit 1;
+fi
+
 echo "*** Starting run-backup.sh ***"
 
 DATE=$(date +%Y%m%d_%H%M%S)
